@@ -1,4 +1,13 @@
 <?php
+$name="";
+$mail="";
+$conn=mysqli_connect('localhost','root','','person');
+if(mysqli_connect_errno()){
+echo "Error";
+	} else {
+		echo "Connected";
+		echo"<br>";
+	}
 
 if (isset($_POST['submit'])){
 	if (empty($_POST["name"])){
@@ -19,9 +28,11 @@ if (isset($_POST['submit'])){
 	echo "<br>";
 
 }
-
-	
 }
+$query1="INSERT INTO stud(name,mail) VALUES('$name','$mail')";/*write query*/
+	$result1=mysqli_query($conn,$query1);/*execute*/
+	
+
 
 ?>
 <!DOCTYPE html>
@@ -44,7 +55,7 @@ if (isset($_POST['submit'])){
 	<br>
 
 	<div>
-		<button type="submit" name="submit">Submit</button>
+		<button type="submit" name="submit" >Submit</button>
 	
 		<button type="submit" name="cancel">Cancel</button>
 	</div>
